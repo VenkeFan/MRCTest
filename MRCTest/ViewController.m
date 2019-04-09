@@ -67,8 +67,8 @@ void(^block)(void);
     }
     
     {
-//        testBlock();
-        [self testBlock2];
+        testBlock();
+//        [self testBlock2];
         
         block();
     }
@@ -90,8 +90,9 @@ void(^block)(void);
 void testBlock() {
     int a = 20;
     // case 1:
+//    NSString *str = @"abc"; // 有意思，定义个对象变量后，即使block内没捕获它，仍能正确打印a = 20，为什么？？
     block = ^{
-        NSLog(@"-----> %d", a);
+        NSLog(@"----->a = %d", a);
     };
     
     // case 2:
